@@ -1,0 +1,18 @@
+*{
+    background-color:;
+}
+
+.cities-searched {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px auto;
+    border: solid;
+    border-color: black;
+}
