@@ -1,16 +1,18 @@
 // Key into the server
 var api_key = "83516de6bf1e3fb4d87d3823f33c6bd2";
 var historyEl = document.querySelector("#history");
-var inputEl = document.querySelector("#city-name");
+var inputEl = document.querySelector("#cityName");
 var currentCity = document.querySelector("#currentCity");
 var weatherHistory = JSON.parse(localStorage.getItem("search")) || [];
 console.log(weatherHistory);
+// Function to convert Kelvins to Farenheit
 function getFahrenheit(K) {
   return Math.floor((K - 273.15) * 1.8 + 32);
 }
 //function takes city name and retrieves weather data for that city
 function getWeather(city) {
   var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  
   //send fetch request to get latitude and longitude
   fetch(currentWeatherUrl)
     .then((data) => data.json())
@@ -32,6 +34,8 @@ function getWeather(city) {
           buildDashboard(onecallData);
         });
     });
+    console.log(currentCity)
+    console.log(currentWeatherUrl)
   // Creating the visual display using moment for the present day info
   function buildDashboard(data) {
     var currentTemperature = document.querySelector("#temp");
@@ -43,34 +47,34 @@ function getWeather(city) {
     currentUvi.innerHTML = "UV Index: " + data.current.uvi;
     // Adds the days on to the future forecast
     var cityForecast = document.querySelector("#forecast");
-    for (i = 0; i < 5; i++) {
-      var forecastIndex = data.daily[i];
+    for(i=0; i< 5; i++){
+        var forecastIndex = data.daily[i];  
       // Attaches the city forecast to the build forecast elements
       cityForecast.append(buildForecast(forecastIndex));
     }
+
     function buildForecast(forecast) {
       var col = document.createElement("div");
       col.classList.add("col");
       var forecastContainer = document.createElement("div");
       forecastContainer.classList.add("big-primary", "rounded", "p-5");
-        // Pulls from a date index of future
+      // Pulls from a date index of future
       var forecastDate = new Date(data.daily[i].dt * 1000);
-     
       var forecastDay = forecastDate.getDate();
       var forecastMonth = forecastDate.getMonth() + 1;
       var forecastYear = forecastDate.getFullYear();
       var forecastDate = document.createElement("h4");
       forecastDate.textContent = forecast.forecastDate;
-     
+
       forecastDate.innerHTML =
         forecastMonth + "/" + forecastDay + "/" + forecastYear;
       var forecastTemp = document.createElement("p");
-      //   temp.textContent= forecast.temp;
+      
+      // I built a get Farenheit function  to convert the temperature from Kelvins to Farenheit
       forecastTemp.innerHTML =
         "Temp: " + getFahrenheit(data.daily[i].temp.day) + " F";
 
-      // I built a get Farenheit function  to convert the temperature from Kelvins to Farenheit
-      console.log(getFahrenheit(data.daily[i].temp));
+    
       var forecastHumidity = document.createElement("p");
       forecastHumidity.innerHTML = "Humidity: " + data.daily[i].humidity + "%";
       forecastContainer.append(forecastDate, forecastTemp, forecastHumidity);
@@ -89,7 +93,85 @@ searchBtn.addEventListener("click", function (e) {
 clearHistoryBtn.addEventListener("click", function () {
   weatherHistory = [];
 });
-// getWeather("");
+
+
+
+
+historyEl.addEventListener("click", function(e) {
+    e.preventDefault()
+   if (!e.target.matches("li")) return;
+   getWeather(e.target.textValue)
+   buildDashboard.buildForecast
+   console.log(e.target.textValue)
+});
+
+// function handleCity(){
+//     // treat as a catch all for each item in history array
+//     if (!weatherHistory(cityName)) {
+//        for each weatherHistory.push.(cityName);
+//     }
+// }
+// localStorage.setItem("search", JSON.stringify(weatherHistory))
+
+// handleCity()
+
+// // Each item gets a p tag 
+// // add an event listener
+// // call getWeather and buildDashboard using the value of whatever 
+// // Push into history array the most recent search
+// // After the array has been updated, we store it under the key of history so that when the page reloads you get the most recent search.
+
+// renderPast()
+// function renderPast(){
+//     for (var city of weatherHistory){
+//         var previousCity = document.createElement("li");
+//         previousCity.textContent = cityName
+//         history.append(previousCity);
+// }
+// };
+// handleCity(searchCity)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this is where I actually need to comment out old code 
 
 // var historyEl = document.querySelector("#history");
 // var weatherHistory = JSON.parse(localStorage.getItem("city")) || [];

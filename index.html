@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Weather App</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
@@ -17,7 +17,7 @@
       <nav class="navbar navbar-light bg-light">
         <div class="form-inline">
           <input class="form-control mr-sm-2" 
-          id="city-name" 
+          id="cityName" 
           type="search" 
           placeholder="Search for a City" 
           aria-label="Search">
@@ -27,8 +27,8 @@
           <button class="btn btn-outline-success mb-3" 
           id="clearHistoryBtn" 
           type="submit">Clear History</button>
-          <div id="history">  
-          </div>
+          <ul id="history">  
+          </ul>
         </div>
     </nav>
         <form class="col-10">

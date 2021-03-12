@@ -1,9 +1,10 @@
 
 
-.cities-searched {
+.cityName {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: solid;
 }
 
 .current-weather {
@@ -13,4 +14,13 @@
     margin: 0px auto;
     border: solid;
     border-color: black;
+}
+
+h4 {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    border: solid;
+    padding: 15px;
+    width:fit-content
 }
