@@ -3,12 +3,25 @@ var api_key = "83516de6bf1e3fb4d87d3823f33c6bd2";
 var historyEl = document.querySelector("#history");
 var inputEl = document.querySelector("#cityName");
 var currentCity = document.querySelector("#currentCity");
+var searchedCities = document.querySelector("#searchedCities")
 var weatherHistory = JSON.parse(localStorage.getItem("search")) || [];
 console.log(weatherHistory);
 // Function to convert Kelvins to Farenheit
 function getFahrenheit(K) {
   return Math.floor((K - 273.15) * 1.8 + 32);
 }
+
+function renderSearchedCities(){
+  renderSearchedCities.innerHTMl = "";
+  for (i=0; i<weatherHistory.length; i++){
+      var searchedEl = document.createElement("p");
+      searchedEl.textContent = weatherHistory[i];
+      renderSearchedCities.append(searchedEl)
+  }
+}
+
+
+
 //function takes city name and retrieves weather data for that city
 function getWeather(city) {
   var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
@@ -37,6 +50,7 @@ function getWeather(city) {
     console.log(currentCity)
     console.log(currentWeatherUrl)
   // Creating the visual display using moment for the present day info
+
   function buildDashboard(data) {
     var currentTemperature = document.querySelector("#temp");
     var currentHumidity = document.querySelector("#humidity");
@@ -47,6 +61,7 @@ function getWeather(city) {
     currentUvi.innerHTML = "UV Index: " + data.current.uvi;
     // Adds the days on to the future forecast
     var cityForecast = document.querySelector("#forecast");
+    cityForecast.innerHTML = "";
     for(i=0; i< 5; i++){
         var forecastIndex = data.daily[i];  
       // Attaches the city forecast to the build forecast elements
@@ -93,3 +108,5 @@ searchBtn.addEventListener("click", function (e) {
 clearHistoryBtn.addEventListener("click", function () {
   weatherHistory = [];
 });
+
+renderSearchedCities()
