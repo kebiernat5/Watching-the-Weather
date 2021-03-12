@@ -4,23 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Document</title>
+    <title>My Weather App</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Weather Dashboard</h1>
+          <p class="lead">This will provide you with the current weather and a 5 day forecast for the searched city.</p>
+        </div>
+      </div>
+      <nav class="navbar navbar-light bg-light">
+        <div class="form-inline">
+          <input class="form-control mr-sm-2" 
+          id="city-name" 
+          type="search" 
+          placeholder="Search for a City" 
+          aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" 
+          id="searchBtn" 
+          type="submit">Search</button>
+          <button class="btn btn-outline-success mb-3" 
+          id="clearHistoryBtn" 
+          type="submit">Clear History</button>
+          <div id="history">  
+          </div>
+        </div>
+    </nav>
+        <form class="col-10">
+            <div class="row currentCity">
+            <div class="col-12">
+            <span id="currentCity"></span>    
+            </div>
+            </div>
+            <div class="col-10">
+                <div class="rowTemp">
+                <div class="col-12">
+                <span id="temp"></span>    
+                </div>
+                </div>
+                <div class="col-10">
+                    <div class="rowHum">
+                    <div class="col-12">
+                    <span id="humidity"></span>    
+                    </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="rowUv">
+                        <div class="col-12">
+                        <span id="uvi"></span>    
+                        </div>
+                        </div>
+        </div>
+</div>
+</div>
+</form>
+<div class="forecastContainer">
+    <div class="col-md-4">
+    </div>
+        <div class="col-md-8">
+            <div id="dashboard"></div>
+            <div id="forecast" class="row">
+                <h3>5 Day Forecast</h3>
+                <!-- <div class="col">
+                <div class="bg-primary rounded p-5">
+                <h4> 3/11/2021</h4>
+                <img src="" alt=""/>
+                <p> temp</p>
+                <p> humidity</p>
+    </div>
+  </div> -->
+  </div>
+  </div>    
+  <script src="script.js"></script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleThesheet" href="style.css"/>
+    <title>Watching the Weather</title>
 </head>
 <body>
     <h1>Weather Dashboard</h1>
-   
+
        
       
-        <div class="col-md-6 position-relative">
-          <label for="validationTooltip03" class="form-label">City</label>
-          <input type="text" class="form-control" id="validationTooltip03" required>
-          <div class="invalid-tooltip">
+   <input class="form-control mr-sm-2" 
+   id="city-name" 
+   type="search" 
+   placeholder="Search for a City" 
+   aria-label="Search">
 
            <button id="submit">Submit</button>
           </div>
         </div>
-        <div class = "cities-searched"></div>
+      
+        <div id="history"></div>
+        <div id="city-name"></div>
+        <div id="temp">Temperature</div>
+        <div id="humidity">Humidity</div>
+        <div id="uvi">UV Index</div>
+        <div id="currentCity">Current City</div>
+        <div id="add-city">Add City</div>
+
+        <!-- <div class = "history"></div>
      <div>
        <div class = "current-weather">
 
@@ -28,9 +131,11 @@
       <div class = "forecast-container">
 
       </div>
-     </div>
+     </div> -->
 
       </form>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+</html> -->
