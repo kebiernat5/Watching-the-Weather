@@ -68,7 +68,7 @@ var historyEl = document.querySelector("#history");
     cityForecast.innerHTML = "";
 
 
-    for (i = 0; i < 5; i++) {
+    for (i = 1; i < 6; i++) {
       var forecastIndex = data.daily[i];
       console.log(forecastIndex);
       cityForecast.append(buildForecast(forecastIndex));
