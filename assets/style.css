@@ -60,6 +60,13 @@ h4 {
     cursor: pointer;
     border: solid;
   }
+  
+  #searchBtn {
+    color: var(--text_dark);
+  }
+  #clearHistoryBtn{
+    color: var(--text_dark);
+  }
   input {
     -webkit-appearance: none;
   }
